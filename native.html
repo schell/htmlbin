@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Page Title</title>
+		
+	</head>
+	<body id="" onload="init()">
+		<script type="text/javascript" charset="utf-8">
+			function getImages(url,n,year) {
+				var h1 = document.createElement('h1');
+				h1.innerHTML = year.toString();
+				document.body.appendChild(h1);
+				for (var i=1; i <= n; i++) {
+					var number = i < 10 ? '0'+i.toString() : i.toString();
+					var URL = url.replace('{number}',number);
+					var img = document.createElement('img');
+					img.src = URL;
+					document.body.appendChild(img);
+				}
+			}
+			function init() {
+				getImages('http://img.timeinc.net/time/pictures_of_the_year/pictures_of_the_year_{number}.jpg',48,2010);
+				getImages('http://img.timeinc.net/time/photoessays/2009/suau_world_press/suau_world_press_{number}.jpg',13,2009);
+				getImages('http://img.timeinc.net/time/photoessays/2009/year_in_pictures/year_in_pictures_{number}.jpg',48,2009);
+				getImages('http://img.timeinc.net/time/photoessays/2007/poy/best_photos_2007/poty_{number}.jpg',48,2007);
+			}
+		</script>
+	</body>
+</html>
